@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "google.golang.org/grpc/examples/mytest/mytest";
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.mytest";
+option java_outer_classname = "MyTestProto";
+
+package mytest;
+
+service Greeter {
+    rpc UserInfo (UserInfoRequest) returns (UserInfoReply) {}
+    rpc Add (AddRequest) returns (AddReply) {}
+}
+
+message UserInfoRequest {
+ string people =1;
+ int32 age =2;
+}
+
+message UserInfoReply {
+    string message=1;
+}
+
+message AddRequest{
+    int32 one=1;
+    int32 two=2;
+    int32 three=3;
+}
+
+message AddReply{
+    int32 res=1;
+}
